@@ -2,13 +2,13 @@
 
 #include "ofMain.h"
 #include "KinectV2HDFace.h"
-
-#define	SAVE_DIR_PATH	("face")
+#include "FaceData.h"
 
 class BackEnd
 {
 public:
 	void setup(void) {
+		FaceData::setup();
 		kinect.setup();
 
 		array<bool, BODY_COUNT> selected;
@@ -28,31 +28,14 @@ public:
 	}
 
 	void shotCam(void) {
-		saveImage();
+		shared_ptr<FaceData> faceData(new FaceData());
+		faceData->setKinectData(kinect.getPoints(0), kinect.getImage());
+		faceData->saveData();
 	}
 
 	KinectV2HDFace::Status getKinectStatus(void) { return kinect.getStatus(0); }
 
 private:
 	KinectV2HDFace kinect;
-
-	void saveImage(void) {
-		string timeStampStr = ofGetTimestampString("%Y%m%d_%H%M%S%i");
-		string saveDirPath = SAVE_DIR_PATH;
-		saveDirPath += "\\";
-		saveDirPath += timeStampStr;
-		ofDirectory dir(saveDirPath);
-		if (!dir.exists()) {
-			dir.create();
-		}
-
-		ofImage img = kinect.getImage();
-		img.saveImage(saveDirPath + "\\Face.png");
-
-		vector<ofPoint> points = kinect.getPoints(0);
-		ofFile file(saveDirPath + "\\Vertices.csv", ofFile::WriteOnly);
-		for (ofPoint pos : points) {
-			file << ofToString(pos.x) << "," << ofToString(pos.y) << "," << ofToString(pos.z) << endl;
-		}
-	}
+	vector<shared_ptr<FaceData>> faces;
 };
