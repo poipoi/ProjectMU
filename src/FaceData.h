@@ -52,7 +52,7 @@ public:
 		mesh.clearTexCoords();
 		for (ofPoint pos : points) {
 			mesh.addVertex(pos);
-			mesh.addTexCoord(ofVec2f(pos.x * IMG_SIZE_HALF, pos.y * -IMG_SIZE_HALF));
+			mesh.addTexCoord(ofVec2f(pos.x * IMG_SIZE_HALF + IMG_SIZE_HALF, pos.y * -IMG_SIZE_HALF + IMG_SIZE_HALF));
 		}
 
 		mesh.clearIndices();
@@ -80,10 +80,24 @@ public:
 		saveImg.setFromPixels(pixels);
 		saveImg.crop(0, 0, IMG_SIZE, IMG_SIZE);
 
-		cout << saveImg.width << endl;
+		fbo.allocate(saveImg.width, saveImg.height);
+		ofImage saveImg2;
+		saveImg2.allocate(saveImg.width, saveImg.height, OF_IMAGE_COLOR);
+		fbo.begin();
+		ofPushMatrix();
+		ofTranslate(IMG_SIZE_HALF, IMG_SIZE_HALF);
+		ofScale(IMG_SIZE_HALF, -IMG_SIZE_HALF);
+		saveImg.bind();
+		mesh.drawFaces();
+		saveImg.unbind();
+		ofPopMatrix();
+		fbo.end();
 
-		texture.allocate(saveImg.width, saveImg.height, OF_IMAGE_COLOR);
-		texture.setFromPixels(saveImg.getPixelsRef());
+		fbo.readToPixels(pixels);
+		saveImg2.setFromPixels(pixels);
+
+		texture.allocate(saveImg2.width, saveImg2.height, OF_IMAGE_COLOR);
+		texture.setFromPixels(saveImg2.getPixelsRef());
 	}
 
 	void draw(void) {
