@@ -35,13 +35,11 @@ void ofApp::guiHandler(ofxUIEventArgs &e) {
 			ofImage img = kinect.getImage();
 			img.saveImage(timeStampStr + ".png");
 
-			/*
 			vector<ofPoint> points = kinect.getPoints(0);
 			ofFile file(timeStampStr + ".csv", ofFile::WriteOnly);
 			for (ofPoint pos : points) {
 				file << ofToString(pos.x) << "," << ofToString(pos.y) << "," << ofToString(pos.z) << endl;
 			}
-			*/
 		}
 	}
 }
@@ -51,7 +49,7 @@ void ofApp::update(){
 	kinect.update();
 
 	KinectV2HDFace::Status status = kinect.getStatus(0);
-	/*
+
 	ofxUILabel *p_capStateUI = (ofxUILabel *)gui->getWidget("CAP_STATE");
 	p_capStateUI->setLabel(status.captureStateStr);
 
@@ -60,7 +58,7 @@ void ofApp::update(){
 
 	ofxUIButton *p_buttonUI = (ofxUIButton *)gui->getWidget("FIN_CALIB");
 	p_buttonUI->setValue(status.isDoneModelBuilding);
-	*/		
+	
 }
 
 //--------------------------------------------------------------
