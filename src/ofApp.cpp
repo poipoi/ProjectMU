@@ -47,6 +47,11 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	backEnd.drawCam();
+
+	if (backEnd.getFaceNum() > 0) {
+		shared_ptr<FaceData> face = backEnd.getFace(backEnd.getFaceNum() - 1);
+		face->draw(ofGetWidth() / 2 - IMG_SIZE_HALF, ofGetHeight() / 2 - IMG_SIZE_HALF);
+	}
 }
 
 //--------------------------------------------------------------

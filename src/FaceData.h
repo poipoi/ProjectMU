@@ -100,8 +100,8 @@ public:
 		texture.setFromPixels(saveImg2.getPixelsRef());
 	}
 
-	void draw(void) {
-
+	void draw(float x, float y) {
+		texture.draw(x, y);
 	}
 
 	void saveData(void) {

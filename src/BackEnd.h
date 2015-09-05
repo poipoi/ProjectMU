@@ -31,9 +31,14 @@ public:
 		shared_ptr<FaceData> faceData(new FaceData());
 		faceData->setKinectData(kinect.getPoints(0), kinect.getImage());
 		faceData->saveData();
+
+		faces.push_back(faceData);
 	}
 
 	KinectV2HDFace::Status getKinectStatus(void) { return kinect.getStatus(0); }
+
+	int getFaceNum(void) { return faces.size(); }
+	shared_ptr<FaceData> getFace(int i) { return faces[i]; }
 
 private:
 	KinectV2HDFace kinect;
