@@ -3,8 +3,6 @@
 #include "ofMain.h"
 #include "ofxStateMachine.h"
 #include "SharedData.h"
-#include "BackEnd.h"
-#include "ofxUI.h"
 
 class ofApp : public ofBaseApp{
 
@@ -26,10 +24,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 private:
-	unique_ptr<ofxUICanvas> gui;
 	itg::ofxStateMachine<SharedData> stateMachine;
-	BackEnd backEnd;
 
-	string capStateStr;
-	string colStateStr;
 };
