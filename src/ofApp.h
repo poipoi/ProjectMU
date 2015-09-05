@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "KinectV2HDFace.h"
+#include "ofxUI.h"
 
 class ofApp : public ofBaseApp{
 
@@ -9,6 +10,8 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+
+		void guiHandler(ofxUIEventArgs &e);
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -22,4 +25,8 @@ class ofApp : public ofBaseApp{
 		
 private:
 	KinectV2HDFace kinect;
+	unique_ptr<ofxUICanvas> gui;
+
+	string capStateStr;
+	string colStateStr;
 };
