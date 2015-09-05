@@ -13,6 +13,7 @@ void ofApp::setup(){
 	gui->addLabel("COL_STATE", "");
 	gui->addButton("FIN_CALIB", false);
 	gui->addLabelButton("SAVE", false);
+	gui->addLabelToggle("SAVE_CHILD", false);
 
 	ofAddListener(gui->newGUIEvent, this, &ofApp::guiHandler);
 }
@@ -24,6 +25,14 @@ void ofApp::guiHandler(ofxUIEventArgs &e) {
 		ofxUILabelButton *p_buttonUI = (ofxUILabelButton *)e.widget;
 		if (p_buttonUI->getValue()) {
 			backEnd.shotCam();
+		}
+	}
+	else if (name == "SAVE_CHILD") {
+		ofxUILabelButton *p_buttonUI = (ofxUILabelButton *)e.widget;
+		if (p_buttonUI->getValue()) {
+			shared_ptr<FaceData> parent1 = backEnd.getFace(backEnd.getFaceNum() - 2);
+			shared_ptr<FaceData> parent2 = backEnd.getFace(backEnd.getFaceNum() - 1);
+			backEnd.createChild(parent1, parent2);
 		}
 	}
 }

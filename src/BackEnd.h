@@ -37,6 +37,14 @@ public:
 
 	KinectV2HDFace::Status getKinectStatus(void) { return kinect.getStatus(0); }
 
+	shared_ptr<FaceData> createChild(shared_ptr<FaceData> parent1, shared_ptr<FaceData> parent2) {
+		shared_ptr<FaceData> child = parent1->createChild(parent2);
+		child->saveData();
+
+		faces.push_back(child);
+		return child;
+	}
+
 	int getFaceNum(void) { return faces.size(); }
 	shared_ptr<FaceData> getFace(int i) { return faces[i]; }
 

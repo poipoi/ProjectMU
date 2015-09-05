@@ -128,6 +128,86 @@ public:
 		texture.saveImage(saveDirPath + "\\Face.png");
 	}
 
+	shared_ptr<FaceData> createChild(shared_ptr<FaceData> parent) {
+		shared_ptr<FaceData> child(new FaceData());
+
+		vector<ofPoint> myVertices = this->mesh.getVertices();
+		vector<ofPoint> parentVertices = parent->mesh.getVertices();
+		vector<ofPoint> childVertices;
+		for (int i = 0; i < myVertices.size(); i++) {
+			childVertices.push_back((myVertices[i] + parentVertices[i]) / 2);
+		}
+		child->mesh.clearVertices();
+		child->mesh.addVertices(childVertices);
+
+		for (ofPoint vertex : childVertices) {
+			child->mesh.addTexCoord(
+				ofVec2f(vertex.x * IMG_SIZE_HALF + IMG_SIZE_HALF, vertex.y * -IMG_SIZE_HALF + IMG_SIZE_HALF));
+		}
+
+		child->mesh.clearIndices();
+		for (int i : indices) {
+			child->mesh.addIndex(i);
+		}
+
+		vector<ofVec2f> myTexCoords = this->mesh.getTexCoords();
+		vector<ofVec2f> parentTexCoords = parent->mesh.getTexCoords();
+
+		ofVboMesh specialMyMesh;
+		specialMyMesh.clearVertices();
+		specialMyMesh.addVertices(childVertices);
+		specialMyMesh.clearTexCoords();
+		specialMyMesh.addTexCoords(myTexCoords);
+		specialMyMesh.clearIndices();
+		for (int i : indices) { specialMyMesh.addIndex(i); }
+
+		ofVboMesh specialParentMesh;
+		specialParentMesh.clearVertices();
+		specialParentMesh.addVertices(childVertices);
+		specialParentMesh.clearTexCoords();
+		specialParentMesh.addTexCoords(parentTexCoords);
+		specialParentMesh.clearIndices();
+		for (int i : indices) { specialParentMesh.addIndex(i); }
+
+		ofFbo fbo;
+		fbo.allocate(this->texture.width, this->texture.height);
+		ofPixels pixels;
+
+		fbo.begin();
+		ofPushStyle();
+		ofPushMatrix();
+		ofTranslate(IMG_SIZE_HALF, IMG_SIZE_HALF);
+		ofScale(IMG_SIZE_HALF, -IMG_SIZE_HALF);
+
+		ofSetColor(ofFloatColor(1, 1));
+		this->texture.bind();
+		specialMyMesh.drawFaces();
+		this->texture.unbind();
+		
+		ofSetColor(ofFloatColor(1, 0.5));
+		parent->texture.bind();
+		specialParentMesh.drawFaces();
+		parent->texture.unbind();
+
+		ofPopMatrix();
+		ofPopStyle();
+		fbo.end();
+
+		fbo.readToPixels(pixels);
+		for (int i = 0; i < pixels.getWidth(); i++) {
+			for (int j = 0; j < pixels.getHeight(); j++) {
+				ofColor col = pixels.getColor(i, j);
+				if (col.a > 0) {
+					pixels.setColor(i, j, ofColor(col.r, col.g, col.b, 255));
+				}
+			}
+		}
+		child->texture.allocate(pixels.getWidth(), pixels.getHeight(), OF_IMAGE_COLOR);
+		child->texture.setFromPixels(pixels);
+
+		return child;
+	}
+
 private:
 	static vector<int> indices;
 
