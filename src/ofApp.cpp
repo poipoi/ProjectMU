@@ -2,17 +2,24 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	kinect.setup();
 
+	array<bool, BODY_COUNT> selected;
+	for (bool &sel : selected) {
+		sel = false;
+	}
+	selected[0] = true;
+	kinect.setSelected(selected);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	kinect.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+	kinect.draw();
 }
 
 //--------------------------------------------------------------

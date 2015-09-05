@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "KinectV2HDFace.h"
 
 class ofApp : public ofBaseApp{
 
@@ -19,4 +20,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+private:
+	KinectV2HDFace kinect;
 };

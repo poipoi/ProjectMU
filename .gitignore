@@ -31,3 +31,4 @@ obj/
 bin/*.*
 *.opensdf
 *.sdf
+bin/NuiDatabase
