@@ -7,7 +7,7 @@
 #include "Kinect.h"
 #include "Kinect.Face.h"
 
-#define	FACE_COUNT		(4)
+#define	FACE_COUNT		(1)
 
 class KinectV2HDFace
 {
