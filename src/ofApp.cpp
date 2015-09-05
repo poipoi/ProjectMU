@@ -1,8 +1,15 @@
 #include "ofApp.h"
+#include "TemplateState.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+	//shared data
+	stateMachine.getSharedData().sharedMsg = "Hello state machine!";
+
+	//init stataMachine
+	stateMachine.addState<TemplateState>();
+	stateMachine.changeState("template");
 }
 
 //--------------------------------------------------------------
