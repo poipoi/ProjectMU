@@ -61,8 +61,29 @@ public:
 		}
 
 
+		ofFbo fbo;
+		fbo.allocate(img.width, img.height);
+		ofPixels pixels;
+		ofImage saveImg;
+		saveImg.allocate(img.width, img.height, OF_IMAGE_COLOR);
+		fbo.begin();
+		ofPushMatrix();
+		ofTranslate(IMG_SIZE_HALF, IMG_SIZE_HALF);
+		ofScale(scale * IMG_SIZE_HALF, scale * -IMG_SIZE_HALF);
+		ofRotateZ(angle);
+		ofTranslate(-centerPos);
+		img.draw(0, 0);
+		ofPopMatrix();
+		fbo.end();
 
-		texture.setFromPixels(img.getPixelsRef());
+		fbo.readToPixels(pixels);
+		saveImg.setFromPixels(pixels);
+		saveImg.crop(0, 0, IMG_SIZE, IMG_SIZE);
+
+		cout << saveImg.width << endl;
+
+		texture.allocate(saveImg.width, saveImg.height, OF_IMAGE_COLOR);
+		texture.setFromPixels(saveImg.getPixelsRef());
 	}
 
 	void draw(void) {
