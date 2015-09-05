@@ -1,5 +1,10 @@
 #include "ofApp.h"
 #include "TemplateState.h"
+#include "S_idling.h"
+#include "S_camera.h"
+#include "S_select.h"
+#include "S_accountInput.h"
+#include "S_end.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -9,7 +14,12 @@ void ofApp::setup(){
 
 	//init stataMachine
 	stateMachine.addState<TemplateState>();
-	stateMachine.changeState("template");
+	stateMachine.addState<S_idling>();
+	stateMachine.addState<S_camera>();
+	stateMachine.addState<S_select>();
+	stateMachine.addState<S_accountInput>();
+	stateMachine.addState<S_end>();
+	stateMachine.changeState("S_idling");
 }
 
 //--------------------------------------------------------------

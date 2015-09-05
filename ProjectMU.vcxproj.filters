@@ -160,6 +160,21 @@
     <ClCompile Include="src\TemplateState.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\S_accountInput.cpp">
+      <Filter>src\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\S_camera.cpp">
+      <Filter>src\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\S_idling.cpp">
+      <Filter>src\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\S_select.cpp">
+      <Filter>src\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\S_end.cpp">
+      <Filter>src\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -188,6 +203,9 @@
     </Filter>
     <Filter Include="addons\ofxUI\src">
       <UniqueIdentifier>{A00C2D23-6C11-BC86-3993-2CF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\State">
+      <UniqueIdentifier>{649bd62a-1f67-4b64-a829-d1782691769c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -364,6 +382,21 @@
     </ClInclude>
     <ClInclude Include="src\SharedData.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\S_accountInput.h">
+      <Filter>src\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\S_camera.h">
+      <Filter>src\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\S_idling.h">
+      <Filter>src\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\S_select.h">
+      <Filter>src\State</Filter>
+    </ClInclude>
+    <ClInclude Include="src\S_end.h">
+      <Filter>src\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

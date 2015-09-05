@@ -140,6 +140,11 @@
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWaveform.cpp" />
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWidget.cpp" />
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.cpp" />
+    <ClCompile Include="src\S_accountInput.cpp" />
+    <ClCompile Include="src\S_camera.cpp" />
+    <ClCompile Include="src\S_end.cpp" />
+    <ClCompile Include="src\S_idling.cpp" />
+    <ClCompile Include="src\S_select.cpp" />
     <ClCompile Include="src\TemplateState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +204,11 @@
     <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.h" />
     <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWrapper.h" />
     <ClInclude Include="src\SharedData.h" />
+    <ClInclude Include="src\S_accountInput.h" />
+    <ClInclude Include="src\S_camera.h" />
+    <ClInclude Include="src\S_end.h" />
+    <ClInclude Include="src\S_idling.h" />
+    <ClInclude Include="src\S_select.h" />
     <ClInclude Include="src\TemplateState.h" />
   </ItemGroup>
   <ItemGroup>
