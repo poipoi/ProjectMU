@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "ofxStateMachine.h"
 #include "SharedData.h"
+#include "BackEnd.h"
+#include "ofxUI.h"
 
 class ofApp : public ofBaseApp{
 
@@ -10,6 +12,8 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+
+		void guiHandler(ofxUIEventArgs &e);
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -20,6 +24,12 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
-		itg::ofxStateMachine<SharedData> stateMachine;
+
+private:
+	unique_ptr<ofxUICanvas> gui;
+	itg::ofxStateMachine<SharedData> stateMachine;
+	BackEnd backEnd;
+
+	string capStateStr;
+	string colStateStr;
 };

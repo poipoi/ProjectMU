@@ -7,12 +7,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
       <Filter>addons\ofxXmlSettings\src</Filter>
     </ClCompile>
@@ -174,6 +168,11 @@
     </ClCompile>
     <ClCompile Include="src\S_end.cpp">
       <Filter>src\State</Filter>
+    <ClCompile Include="src\KinectV2HDFace.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FaceData.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -209,9 +208,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -397,6 +393,14 @@
     </ClInclude>
     <ClInclude Include="src\S_end.h">
       <Filter>src\State</Filter>
+    <ClInclude Include="src\KinectV2HDFace.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BackEnd.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FaceData.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
