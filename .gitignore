@@ -32,3 +32,4 @@ bin/*.*
 *.opensdf
 *.sdf
 bin/NuiDatabase
+bin/data/face
