@@ -2,14 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	kinect.setup();
-
-	array<bool, BODY_COUNT> selected;
-	for (bool &sel : selected) {
-		sel = false;
-	}
-	selected[0] = true;
-	kinect.setSelected(selected);
+	backEnd.setup();
 
 	capStateStr = "";
 	colStateStr = "";
@@ -30,25 +23,15 @@ void ofApp::guiHandler(ofxUIEventArgs &e) {
 	if (name == "SAVE") {
 		ofxUILabelButton *p_buttonUI = (ofxUILabelButton *)e.widget;
 		if (p_buttonUI->getValue()) {
-			string timeStampStr = ofGetTimestampString("%Y%m%d_%H%M%S%i");
-
-			ofImage img = kinect.getImage();
-			img.saveImage(timeStampStr + ".png");
-
-			vector<ofPoint> points = kinect.getPoints(0);
-			ofFile file(timeStampStr + ".csv", ofFile::WriteOnly);
-			for (ofPoint pos : points) {
-				file << ofToString(pos.x) << "," << ofToString(pos.y) << "," << ofToString(pos.z) << endl;
-			}
+			backEnd.shotCam();
 		}
 	}
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	kinect.update();
-
-	KinectV2HDFace::Status status = kinect.getStatus(0);
+	backEnd.update();
+	KinectV2HDFace::Status status = backEnd.getKinectStatus();
 
 	ofxUILabel *p_capStateUI = (ofxUILabel *)gui->getWidget("CAP_STATE");
 	p_capStateUI->setLabel(status.captureStateStr);
@@ -63,7 +46,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	kinect.draw();
+	backEnd.drawCam();
 }
 
 //--------------------------------------------------------------

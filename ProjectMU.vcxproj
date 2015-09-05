@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\BackEnd.h" />
     <ClInclude Include="src\KinectV2HDFace.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />

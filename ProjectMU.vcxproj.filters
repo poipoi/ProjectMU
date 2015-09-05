@@ -341,6 +341,9 @@
     <ClInclude Include="src\KinectV2HDFace.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\BackEnd.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

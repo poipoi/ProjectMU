@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "KinectV2HDFace.h"
+#include "BackEnd.h"
 #include "ofxUI.h"
 
 class ofApp : public ofBaseApp{
@@ -24,8 +24,9 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
 private:
-	KinectV2HDFace kinect;
 	unique_ptr<ofxUICanvas> gui;
+
+	BackEnd backEnd;
 
 	string capStateStr;
 	string colStateStr;
