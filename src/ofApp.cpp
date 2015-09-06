@@ -61,6 +61,11 @@ void ofApp::keyPressed(int key){
 	case 'M':
 		stateMachine.getSharedData().gui->toggleVisible();
 		break;
+
+	case 'f':
+	case 'F':
+		ofToggleFullscreen();
+		break;
 	}
 }
 
