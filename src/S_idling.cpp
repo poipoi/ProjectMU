@@ -8,7 +8,7 @@ void S_idling::stateEnter() {
 }
 
 void S_idling::stateExit() {
-	video.stop();
+	video.close();
 }
 
 void S_idling::setup() {

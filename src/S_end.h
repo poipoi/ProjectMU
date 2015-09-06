@@ -19,7 +19,10 @@ public:
 	string getName() { return "S_end"; }
 
 private:
+	ofVideoPlayer video;
 
-
+	float nowTime;
+	float startTime;
+	float LIMIT_TIME;
 };
 
