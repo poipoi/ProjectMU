@@ -23,5 +23,13 @@ private:
 	float startTim;
 
 	float LIMIT_TIME;
+	float FADE_START_TIME;
+	float FADE_END_TIME;
+	float IMAGE_SIZE;
+
+	float size;
+	float alpha;
+
+	ofVideoPlayer video;
 };
 
