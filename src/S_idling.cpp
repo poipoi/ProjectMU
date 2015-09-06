@@ -2,10 +2,13 @@
 
 void S_idling::stateEnter() {
 	getSharedData().setState(getName());
+
+	video.loadMovie("movie\\MU_IDOL_TITLE.mp4");
+	video.play();
 }
 
 void S_idling::stateExit() {
-
+	video.stop();
 }
 
 void S_idling::setup() {
@@ -19,10 +22,11 @@ void S_idling::setup() {
 }
 
 void S_idling::update() {
-
+	video.update();
 }
 
 void S_idling::draw() {
+	video.draw(0, 0);
 	buttonImg.draw(buttonRect);
 }
 

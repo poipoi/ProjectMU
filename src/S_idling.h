@@ -21,6 +21,6 @@ public:
 private:
 	ofRectangle buttonRect;
 	ofImage buttonImg;
-
+	ofVideoPlayer video;
 };
 
