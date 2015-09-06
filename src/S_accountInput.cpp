@@ -2,6 +2,8 @@
 
 void S_accountInput::stateEnter() {
 	getSharedData().setState(getName());
+
+	childFace = getSharedData().backEnd.getCurrentFace();
 }
 
 void S_accountInput::stateExit() {
@@ -17,7 +19,7 @@ void S_accountInput::update() {
 }
 
 void S_accountInput::draw() {
-
+	childFace->draw(ofGetWidth() / 2 - 150, ofGetHeight() / 2 - 150, 300, 300);
 }
 
 void S_accountInput::mouseMoved(int x, int y) {

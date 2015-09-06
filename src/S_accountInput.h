@@ -19,7 +19,6 @@ public:
 	string getName() { return "S_accountInput"; }
 
 private:
-
-
+	shared_ptr<FaceData> childFace;
 };
 
