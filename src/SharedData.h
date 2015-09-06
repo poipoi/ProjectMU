@@ -20,6 +20,7 @@ public:
 
 		gui.reset(new ofxUICanvas(300, ofGetHeight()));
 		gui->addFPSSlider("FPS");
+		gui->addLabel("STATE", "");
 		gui->addLabel("CAP_STATE", "");
 		gui->addLabel("COL_STATE", "");
 		gui->addButton("FIN_CALIB", false);
@@ -39,6 +40,10 @@ public:
 
 		ofxUIButton *p_buttonUI = (ofxUIButton *)gui->getWidget("FIN_CALIB");
 		p_buttonUI->setValue(status.isDoneModelBuilding);
+	}
+
+	void setState(string stateName) {
+		((ofxUILabel *)gui->getWidget("STATE"))->setLabel(stateName);
 	}
 };
 

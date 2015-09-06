@@ -1,29 +1,45 @@
 #include "S_end.h"
 
-S_end::S_end(void){
+void S_end::stateEnter() {
+	getSharedData().setState(getName());
 }
 
+void S_end::stateExit() {
 
-S_end::~S_end(void){
 }
 
-string S_end::getName(){
-	return "S_end";
+void S_end::setup() {
+
 }
 
-void S_end::mouseReleased(int x, int y, int button)
-{
+void S_end::update() {
+
+}
+
+void S_end::draw() {
+
+}
+
+void S_end::mouseMoved(int x, int y) {
+
+}
+
+void S_end::mouseDragged(int x, int y, int button) {
+
+}
+
+void S_end::mousePressed(int x, int y, int button) {
 	changeState("S_idling");
 }
 
-void S_end::setup(){
+void S_end::mouseReleased(int x, int y, int button) {
 
 }
 
-void S_end::update(){
+void S_end::keyPressed(int key) {
 
 }
 
-void S_end::draw(){
-	ofDrawBitmapString( "end", 20, 20);
+void S_end::keyReleased(int key) {
+
 }
