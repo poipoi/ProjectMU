@@ -213,6 +213,12 @@ public:
 		child->texture.allocate(pixels.getWidth(), pixels.getHeight(), OF_IMAGE_COLOR);
 		child->texture.setFromPixels(pixels);
 
+		this->child = child;
+		parent->child = child;
+
+		child->parent[0].reset(this);
+		child->parent[1] = parent;
+
 		return child;
 	}
 
@@ -240,10 +246,14 @@ public:
 		}
 	}
 
+	shared_ptr<FaceData> getParent(int i) { return parent[i]; }
+
 private:
 	static vector<int> indices;
 
 	ofVboMesh mesh;
 	ofImage texture;
 
+	shared_ptr<FaceData> parent[2];
+	shared_ptr<FaceData> child;
 };

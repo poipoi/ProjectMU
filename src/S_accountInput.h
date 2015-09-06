@@ -20,5 +20,19 @@ public:
 
 private:
 	shared_ptr<FaceData> childFace;
+	shared_ptr<FaceData> parent;
+
+	ofVideoPlayer video;
+
+	float ANIMATION_TIME;
+	float NOP_TIME;
+	float FADE_TIME;
+	float END_TIME;
+
+	float startTime;
+	float nowTime;
+
+	float ratio;
+	float size;
 };
 
