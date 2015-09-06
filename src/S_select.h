@@ -21,5 +21,16 @@ public:
 private:
 	vector<shared_ptr<FaceData>> candidateFaces;
 	vector<ofRectangle> candidateRects;
+
+	ofVideoPlayer video;
+
+	float fadeStartTime;
+	float nowFadeTime;
+	bool isFading;
+	float FADE_TIME;
+	float ANIMATION_TIME;
+
+	int selectedIndex;
+	ofPoint selectedPos;
 };
 

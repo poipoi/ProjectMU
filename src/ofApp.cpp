@@ -9,6 +9,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofBackground(0);
+
 	stateMachine.getSharedData().setup();
 	ofAddListener(stateMachine.getSharedData().gui->newGUIEvent, this, &ofApp::guiHandler);
 
