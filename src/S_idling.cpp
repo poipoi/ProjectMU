@@ -12,10 +12,10 @@ void S_idling::stateExit() {
 }
 
 void S_idling::setup() {
-	buttonImg.loadImage("button.png");
+	buttonImg.loadImage("START.png");
 	buttonRect.set(
-		(ofGetWidth() / 2) - (buttonImg.width / 2),
-		(ofGetHeight() / 2) - (buttonImg.height / 2),
+		ofGetWidth()- buttonImg.width - 20,
+		ofGetHeight() - buttonImg.height - 20,
 		buttonImg.width,
 		buttonImg.height
 	);

@@ -16,7 +16,7 @@ void S_camera::stateExit() {
 }
 
 void S_camera::setup() {
-	buttonImg.loadImage("SWITCH.png");
+	buttonImg.loadImage("CLICK.png");
 	buttonRect.set(
 		(ofGetWidth() / 2) - (buttonImg.width / 2),
 		ofGetHeight() - buttonImg.height - 20,
