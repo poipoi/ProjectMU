@@ -60,8 +60,8 @@ public:
 	vector<shared_ptr<FaceData>> getCandidateFaces(void) {
 		vector<shared_ptr<FaceData>> candidateFaces;
 		for (int cnt = 0; cnt < 5; cnt++) {
-			int i = ofRandom(5);
-			if (i >= 5) {
+			int i = ofRandom(faces.size());
+			if (i >= faces.size()) {
 				continue;
 			}
 			candidateFaces.push_back(faces[i]);
