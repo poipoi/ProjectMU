@@ -22,5 +22,9 @@ private:
 	ofRectangle buttonRect;
 	ofImage buttonImg;
 
+	float LIMIT_TIME;
+	float startTim;
+	float nowTime;
+
 };
 

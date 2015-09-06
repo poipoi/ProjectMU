@@ -2,10 +2,17 @@
 
 void S_camera::stateEnter() {
 	getSharedData().setState(getName());
+
+	LIMIT_TIME = 30;
+
+	startTim = ofGetElapsedTimef();
+	nowTime = 0;
 }
 
 void S_camera::stateExit() {
-	getSharedData().backEnd.shotCam();
+	if (LIMIT_TIME >= nowTime) {
+		getSharedData().backEnd.shotCam();
+	}
 }
 
 void S_camera::setup() {
@@ -19,7 +26,11 @@ void S_camera::setup() {
 }
 
 void S_camera::update() {
+	nowTime = ofGetElapsedTimef() - startTim;
 
+	if (nowTime > LIMIT_TIME) {
+		changeState("S_idling");
+	}
 }
 
 void S_camera::draw() {
