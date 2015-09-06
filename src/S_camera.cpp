@@ -5,7 +5,7 @@ void S_camera::stateEnter() {
 }
 
 void S_camera::stateExit() {
-
+	getSharedData().backEnd.shotCam();
 }
 
 void S_camera::setup() {
@@ -23,6 +23,8 @@ void S_camera::update() {
 }
 
 void S_camera::draw() {
+	getSharedData().backEnd.drawCam();
+
 	buttonImg.draw(buttonRect);
 }
 
