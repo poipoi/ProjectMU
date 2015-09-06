@@ -19,6 +19,8 @@ public:
 	string getName() { return "S_idling"; }
 
 private:
+	ofRectangle buttonRect;
+	ofImage buttonImg;
 
 };
 
