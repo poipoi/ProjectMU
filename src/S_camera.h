@@ -19,6 +19,7 @@ public:
 	string getName() { return "S_camera"; }
 
 private:
+	
 	ofRectangle buttonRect;
 	ofImage buttonImg;
 
