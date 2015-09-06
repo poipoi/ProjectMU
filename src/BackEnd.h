@@ -70,6 +70,10 @@ public:
 		return candidateFaces;
 	}
 
+	bool isFaceFound(void) {
+		return kinect.isValid(0);
+	}
+
 private:
 	KinectV2HDFace kinect;
 	vector<shared_ptr<FaceData>> faces;

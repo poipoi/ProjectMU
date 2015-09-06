@@ -25,7 +25,9 @@ void S_camera::update() {
 void S_camera::draw() {
 	getSharedData().backEnd.drawCam();
 
-	buttonImg.draw(buttonRect);
+	if (getSharedData().backEnd.isFaceFound()) {
+		buttonImg.draw(buttonRect);
+	}
 }
 
 void S_camera::mouseMoved(int x, int y) {
@@ -41,8 +43,10 @@ void S_camera::mousePressed(int x, int y, int button) {
 }
 
 void S_camera::mouseReleased(int x, int y, int button) {
-	if (buttonRect.inside(x, y)) {
-		changeState("S_preview");
+	if (getSharedData().backEnd.isFaceFound()) {
+		if (buttonRect.inside(x, y)) {
+			changeState("S_preview");
+		}
 	}
 }
 
