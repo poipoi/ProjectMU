@@ -104,6 +104,10 @@ public:
 		texture.draw(x, y);
 	}
 
+	void draw(float x, float y, float w, float h) {
+		texture.draw(x, y, w, h);
+	}
+
 	void saveData(void) {
 		string timeStampStr = ofGetTimestampString("%Y%m%d_%H%M%S%i");
 		string saveDirPath = SAVE_DIR_PATH;

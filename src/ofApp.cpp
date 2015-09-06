@@ -2,6 +2,7 @@
 #include "TemplateState.h"
 #include "S_idling.h"
 #include "S_camera.h"
+#include "S_preview.h"""
 #include "S_select.h"
 #include "S_accountInput.h"
 #include "S_end.h"
@@ -15,6 +16,7 @@ void ofApp::setup(){
 	stateMachine.addState<TemplateState>();
 	stateMachine.addState<S_idling>();
 	stateMachine.addState<S_camera>();
+	stateMachine.addState<S_preview>();
 	stateMachine.addState<S_select>();
 	stateMachine.addState<S_accountInput>();
 	stateMachine.addState<S_end>();

@@ -146,6 +146,7 @@
     <ClCompile Include="src\S_camera.cpp" />
     <ClCompile Include="src\S_end.cpp" />
     <ClCompile Include="src\S_idling.cpp" />
+    <ClCompile Include="src\S_preview.cpp" />
     <ClCompile Include="src\S_select.cpp" />
     <ClCompile Include="src\TemplateState.cpp" />
   </ItemGroup>
@@ -213,6 +214,7 @@
     <ClInclude Include="src\S_camera.h" />
     <ClInclude Include="src\S_end.h" />
     <ClInclude Include="src\S_idling.h" />
+    <ClInclude Include="src\S_preview.h" />
     <ClInclude Include="src\S_select.h" />
     <ClInclude Include="src\TemplateState.h" />
   </ItemGroup>

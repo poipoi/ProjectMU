@@ -42,7 +42,7 @@ void S_camera::mousePressed(int x, int y, int button) {
 
 void S_camera::mouseReleased(int x, int y, int button) {
 	if (buttonRect.inside(x, y)) {
-		changeState("S_select");
+		changeState("S_preview");
 	}
 }
 
