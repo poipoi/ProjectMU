@@ -19,7 +19,7 @@ public:
 	string getName() { return "S_select"; }
 
 private:
-
-
+	vector<shared_ptr<FaceData>> candidateFaces;
+	vector<ofRectangle> candidateRects;
 };
 

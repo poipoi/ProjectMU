@@ -9,6 +9,14 @@ class BackEnd
 public:
 	void setup(void) {
 		FaceData::setup();
+
+		for (int i = 0; i < 5; i++) {
+			shared_ptr<FaceData> data(new FaceData());
+			data->loadData("initface\\" + ofToString(i));
+			faces.push_back(data);
+		}
+		cout << faces.size() << endl;
+
 		kinect.setup();
 
 		array<bool, BODY_COUNT> selected;
@@ -47,6 +55,20 @@ public:
 
 	int getFaceNum(void) { return faces.size(); }
 	shared_ptr<FaceData> getFace(int i) { return faces[i]; }
+	shared_ptr<FaceData> getCurrentFace(void) { return faces[faces.size() - 1]; }
+
+	vector<shared_ptr<FaceData>> getCandidateFaces(void) {
+		vector<shared_ptr<FaceData>> candidateFaces;
+		for (int cnt = 0; cnt < 5; cnt++) {
+			int i = ofRandom(5);
+			if (i >= 5) {
+				continue;
+			}
+			candidateFaces.push_back(faces[i]);
+		}
+
+		return candidateFaces;
+	}
 
 private:
 	KinectV2HDFace kinect;

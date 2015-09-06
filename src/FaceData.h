@@ -108,6 +108,10 @@ public:
 		texture.draw(x, y, w, h);
 	}
 
+	void draw(ofRectangle rect) {
+		texture.draw(rect);
+	}
+
 	void saveData(void) {
 		string timeStampStr = ofGetTimestampString("%Y%m%d_%H%M%S%i");
 		string saveDirPath = SAVE_DIR_PATH;
@@ -210,6 +214,30 @@ public:
 		child->texture.setFromPixels(pixels);
 
 		return child;
+	}
+
+	void loadData(string dirPath) {
+		texture.loadImage(dirPath + "\\Face.png");
+
+		ofFile file(dirPath + "\\Vertices.csv");
+		ofBuffer buff = file.readToBuffer();
+		string str;
+		mesh.clearVertices();
+		mesh.clearTexCoords();
+		while ((str = buff.getNextLine()) != "") {
+			vector<string> numStrs = ofSplitString(str, ",");
+			ofPoint vertex(ofToFloat(numStrs[0]), ofToFloat(numStrs[1]), ofToFloat(numStrs[2]));
+
+			mesh.addVertex(vertex);
+			mesh.addTexCoord(ofVec2f(
+				vertex.x * IMG_SIZE_HALF + IMG_SIZE_HALF,
+				vertex.y * -IMG_SIZE_HALF + IMG_SIZE_HALF));
+		}
+
+		mesh.clearIndices();
+		for (int i : indices) {
+			mesh.addIndex(i);
+		}
 	}
 
 private:
