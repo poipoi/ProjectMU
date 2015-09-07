@@ -40,7 +40,7 @@ void S_camera::update() {
 void S_camera::draw() {
 	getSharedData().backEnd.drawCam();
 
-	if (getSharedData().backEnd.isFaceFound()) {
+	if (getSharedData().backEnd.isFaceFound() || !getSharedData().isKinectEnable) {
 		buttonImg.draw(buttonRect);
 	}
 }
@@ -58,7 +58,7 @@ void S_camera::mousePressed(int x, int y, int button) {
 }
 
 void S_camera::mouseReleased(int x, int y, int button) {
-	if (getSharedData().backEnd.isFaceFound()) {
+	if (getSharedData().backEnd.isFaceFound() || !getSharedData().isKinectEnable) {
 		if (buttonRect.inside(x, y)) {
 			changeState("S_preview");
 		}

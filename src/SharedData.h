@@ -27,7 +27,8 @@ public:
 		gui->addLabel("COL_STATE", "");
 		gui->addButton("FIN_CALIB", false);
 		gui->addLabelButton("SAVE", false);
-		gui->addLabelToggle("SAVE_CHILD", false);
+		gui->addLabelButton("SAVE_CHILD", false);
+		gui->addLabelToggle("KINECT", &isKinectEnable);
 
 		isKinectEnable = false;
 	}
