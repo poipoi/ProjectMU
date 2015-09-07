@@ -52,7 +52,7 @@ void S_accountInput::update() {
 }
 
 void S_accountInput::draw() {
-	video.draw(0, 0);
+	video.draw(0, 0, ofGetWidth(), ofGetHeight());
 
 	if (nowTime < ANIMATION_TIME) {
 		ofPushStyle();

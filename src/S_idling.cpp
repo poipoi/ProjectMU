@@ -26,7 +26,7 @@ void S_idling::update() {
 }
 
 void S_idling::draw() {
-	video.draw(0, 0);
+	video.draw(0, 0, ofGetWidth(), ofGetHeight());
 	buttonImg.draw(buttonRect);
 }
 

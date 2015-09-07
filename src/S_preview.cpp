@@ -49,7 +49,7 @@ void S_preview::update() {
 }
 
 void S_preview::draw() {
-	video.draw(0, 0);
+	video.draw(0, 0, ofGetWidth(), ofGetHeight());
 
 	ofPushStyle();
 	ofSetColor(ofFloatColor(1, alpha));

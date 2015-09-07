@@ -59,7 +59,7 @@ void S_select::draw() {
 
 	ofPushStyle();
 	ofSetColor(255, alpha);
-	video.draw(0, 0);
+	video.draw(0, 0, ofGetWidth(), ofGetHeight());
 	ofPopStyle();
 
 	if (!isFading || (nowFadeTime <= FADE_TIME)) {

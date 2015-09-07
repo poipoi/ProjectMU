@@ -29,7 +29,7 @@ void S_end::update() {
 }
 
 void S_end::draw() {
-	video.draw(0, 0);
+	video.draw(0, 0, ofGetWidth(), ofGetHeight());
 }
 
 void S_end::mouseMoved(int x, int y) {
