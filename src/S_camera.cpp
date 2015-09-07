@@ -7,12 +7,16 @@ void S_camera::stateEnter() {
 
 	startTim = ofGetElapsedTimef();
 	nowTime = 0;
+
+	getSharedData().isKinectEnable = true;
 }
 
 void S_camera::stateExit() {
 	if (LIMIT_TIME >= nowTime) {
 		getSharedData().backEnd.shotCam();
 	}
+
+	getSharedData().isKinectEnable = false;
 }
 
 void S_camera::setup() {

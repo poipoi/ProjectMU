@@ -12,6 +12,8 @@ public:
 	string capStateStr;
 	string colStateStr;
 
+	bool isKinectEnable;
+
 	void setup(void) {
 		backEnd.setup();
 
@@ -26,20 +28,24 @@ public:
 		gui->addButton("FIN_CALIB", false);
 		gui->addLabelButton("SAVE", false);
 		gui->addLabelToggle("SAVE_CHILD", false);
+
+		isKinectEnable = false;
 	}
 
 	void update(void) {
-		backEnd.update();
-		KinectV2HDFace::Status status = backEnd.getKinectStatus();
+		if (isKinectEnable) {
+			backEnd.update();
+			KinectV2HDFace::Status status = backEnd.getKinectStatus();
 
-		ofxUILabel *p_capStateUI = (ofxUILabel *)gui->getWidget("CAP_STATE");
-		p_capStateUI->setLabel(status.captureStateStr);
+			ofxUILabel *p_capStateUI = (ofxUILabel *)gui->getWidget("CAP_STATE");
+			p_capStateUI->setLabel(status.captureStateStr);
 
-		ofxUILabel *p_colStateUI = (ofxUILabel *)gui->getWidget("COL_STATE");
-		p_colStateUI->setLabel(status.collectionStateStr);
+			ofxUILabel *p_colStateUI = (ofxUILabel *)gui->getWidget("COL_STATE");
+			p_colStateUI->setLabel(status.collectionStateStr);
 
-		ofxUIButton *p_buttonUI = (ofxUIButton *)gui->getWidget("FIN_CALIB");
-		p_buttonUI->setValue(status.isDoneModelBuilding);
+			ofxUIButton *p_buttonUI = (ofxUIButton *)gui->getWidget("FIN_CALIB");
+			p_buttonUI->setValue(status.isDoneModelBuilding);
+		}
 	}
 
 	void setState(string stateName) {
